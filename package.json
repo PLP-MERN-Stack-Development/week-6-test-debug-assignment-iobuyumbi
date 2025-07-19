@@ -1,0 +1,23 @@
+{
+  "name": "mern-chat-testing",
+  "version": "1.0.0",
+  "description": "MERN Stack Chat Application with Comprehensive Testing",
+  "scripts": {
+    "install-all": "pnpm install",
+    "dev": "concurrently \"pnpm --filter server dev\" \"pnpm --filter client dev\"",
+    "build": "pnpm --filter client build",
+    "start": "pnpm --filter server start",
+    "test": "jest",
+    "test:unit": "jest --testPathPattern=unit",
+    "test:integration": "jest --testPathPattern=integration",
+    "test:client": "pnpm --filter client test",
+    "test:server": "pnpm --filter server test",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "pnpm --filter client lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "jest": "^29.7.0"
+  }
+}

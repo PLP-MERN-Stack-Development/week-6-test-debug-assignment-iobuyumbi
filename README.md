@@ -1,88 +1,276 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19956868&assignment_repo_type=AssignmentRepo)
-# Testing and Debugging MERN Applications
+# 🧪 MERN Chat Application with Comprehensive Testing
 
-This assignment focuses on implementing comprehensive testing strategies for a MERN stack application, including unit testing, integration testing, and end-to-end testing, along with debugging techniques.
+A real-time chat application built with the MERN stack (MongoDB, Express.js, React, Node.js) and Socket.io, featuring comprehensive testing strategies including unit tests, integration tests, and debugging techniques.
 
-## Assignment Overview
+## 🚀 Features
 
-You will:
-1. Set up testing environments for both client and server
-2. Write unit tests for React components and server functions
-3. Implement integration tests for API endpoints
-4. Create end-to-end tests for critical user flows
-5. Apply debugging techniques for common MERN stack issues
+- **Real-time messaging** with Socket.io
+- **Room-based chat** system
+- **User presence** indicators
+- **Typing indicators**
+- **Private messaging**
+- **Responsive UI** with Tailwind CSS
+- **Comprehensive testing** suite
 
-## Project Structure
+## 📂 Project Structure
 
 ```
-mern-testing/
+mern-chat-testing/
 ├── client/                 # React front-end
-│   ├── src/                # React source code
+│   ├── src/
 │   │   ├── components/     # React components
+│   │   ├── pages/          # Page components
+│   │   ├── context/        # React context
+│   │   ├── socket/         # Socket.io client logic
 │   │   ├── tests/          # Client-side tests
 │   │   │   ├── unit/       # Unit tests
 │   │   │   └── integration/ # Integration tests
 │   │   └── App.jsx         # Main application component
-│   └── cypress/            # End-to-end tests
+│   └── package.json        # Client dependencies
 ├── server/                 # Express.js back-end
-│   ├── src/                # Server source code
-│   │   ├── controllers/    # Route controllers
-│   │   ├── models/         # Mongoose models
-│   │   ├── routes/         # API routes
-│   │   └── middleware/     # Custom middleware
-│   └── tests/              # Server-side tests
-│       ├── unit/           # Unit tests
-│       └── integration/    # Integration tests
+│   ├── socket/             # Socket.io event handlers
+│   ├── routes/             # API routes
+│   ├── controllers/        # Route controllers
+│   ├── models/             # Mongoose models
+│   ├── tests/              # Server-side tests
+│   │   ├── unit/           # Unit tests
+│   │   └── integration/    # Integration tests
+│   └── package.json        # Server dependencies
 ├── jest.config.js          # Jest configuration
-└── package.json            # Project dependencies
+└── package.json            # Root dependencies
 ```
 
-## Getting Started
+## 🛠️ Setup Instructions
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week6-Assignment.md` file
-4. Explore the starter code and existing tests
-5. Complete the tasks outlined in the assignment
-
-## Files Included
-
-- `Week6-Assignment.md`: Detailed assignment instructions
-- Starter code for a MERN application with basic test setup:
-  - Sample React components with test files
-  - Express routes with test files
-  - Jest and testing library configurations
-  - Example tests for reference
-
-## Requirements
+### Prerequisites
 
 - Node.js (v18 or higher)
+- pnpm (recommended) or npm
 - MongoDB (local installation or Atlas account)
-- npm or yarn
-- Basic understanding of testing concepts
 
-## Testing Tools
+### Installation
 
-- Jest: JavaScript testing framework
-- React Testing Library: Testing utilities for React
-- Supertest: HTTP assertions for API testing
-- Cypress/Playwright: End-to-end testing framework
-- MongoDB Memory Server: In-memory MongoDB for testing
+1. **Clone the repository**
 
-## Submission
+   ```bash
+   git clone <your-repo-url>
+   cd mern-chat-testing
+   ```
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+2. **Install dependencies**
 
-1. Complete all required tests (unit, integration, and end-to-end)
-2. Achieve at least 70% code coverage for unit tests
-3. Document your testing strategy in the README.md
-4. Include screenshots of your test coverage reports
-5. Demonstrate debugging techniques in your code
+   ```bash
+   pnpm install
+   ```
 
-## Resources
+3. **Set up environment variables**
+   Create `.env` files in both `client/` and `server/` directories:
 
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
-- [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)
-- [Supertest Documentation](https://github.com/visionmedia/supertest)
-- [Cypress Documentation](https://docs.cypress.io/)
-- [MongoDB Testing Best Practices](https://www.mongodb.com/blog/post/mongodb-testing-best-practices) 
+   **server/.env:**
+
+   ```env
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/chat-app
+   CLIENT_URL=http://localhost:5173
+   ```
+
+   **client/.env:**
+
+   ```env
+   VITE_SERVER_URL=http://localhost:5000
+   ```
+
+4. **Start the development servers**
+
+   ```bash
+   # Start both client and server
+   pnpm dev
+
+   # Or start them separately
+   pnpm --filter server dev
+   pnpm --filter client dev
+   ```
+
+## 🧪 Testing
+
+### Running Tests
+
+```bash
+# Run all tests
+pnpm test
+
+# Run only unit tests
+pnpm test:unit
+
+# Run only integration tests
+pnpm test:integration
+
+# Run client tests only
+pnpm test:client
+
+# Run server tests only
+pnpm test:server
+
+# Run tests with coverage
+pnpm test:coverage
+
+# Run tests in watch mode
+pnpm test:watch
+```
+
+### Test Coverage
+
+The project aims for at least **70% code coverage** across:
+
+- **Statements**: 70%
+- **Branches**: 60%
+- **Functions**: 70%
+- **Lines**: 70%
+
+### Test Types
+
+#### 1. Unit Tests
+
+- **Client**: React components, hooks, utilities
+- **Server**: Controllers, middleware, utility functions
+
+#### 2. Integration Tests
+
+- **API endpoints** with database operations
+- **Socket.io events** and real-time functionality
+- **Component integration** with API calls
+
+#### 3. End-to-End Tests (Future)
+
+- **User flows** (registration, messaging, room management)
+- **Real-time interactions**
+- **Error handling scenarios**
+
+## 🔧 Testing Tools
+
+- **Jest**: JavaScript testing framework
+- **React Testing Library**: Testing utilities for React
+- **Supertest**: HTTP assertions for API testing
+- **Socket.io-client**: Socket testing
+- **MongoDB Memory Server**: In-memory MongoDB for testing
+
+## 🐛 Debugging Techniques
+
+### Client-side Debugging
+
+- **React DevTools** for component inspection
+- **Browser DevTools** for network and console debugging
+- **Error boundaries** for graceful error handling
+- **Console logging** for state tracking
+
+### Server-side Debugging
+
+- **Express error handling** middleware
+- **MongoDB query logging**
+- **Socket.io event logging**
+- **Performance monitoring**
+
+## 📝 API Documentation
+
+### Socket Events
+
+#### Client to Server
+
+- `user_join`: Join chat with username
+- `join_room`: Join a specific room
+- `leave_room`: Leave a room
+- `send_message`: Send a message
+- `typing`: Indicate typing status
+- `private_message`: Send private message
+
+#### Server to Client
+
+- `user_joined`: User joined notification
+- `user_left`: User left notification
+- `joined_room`: Room join confirmation
+- `left_room`: Room leave confirmation
+- `receive_message`: New message received
+- `typing_users`: List of typing users
+- `user_list`: Updated user list
+
+### REST API Endpoints
+
+#### Messages
+
+- `GET /api/messages` - Get all messages
+- `GET /api/messages/:id` - Get specific message
+- `POST /api/messages` - Create new message
+
+#### Users
+
+- `GET /api/users` - Get all users
+- `GET /api/users/:id` - Get specific user
+- `POST /api/users` - Create new user
+- `PUT /api/users/:id` - Update user
+- `DELETE /api/users/:id` - Delete user
+
+## 🚀 Deployment
+
+### Production Build
+
+```bash
+# Build client
+pnpm --filter client build
+
+# Start production server
+pnpm --filter server start
+```
+
+### Environment Variables
+
+Set appropriate environment variables for production:
+
+- `MONGODB_URI`: Production MongoDB connection
+- `CLIENT_URL`: Production client URL
+- `PORT`: Production port
+
+## 📊 Performance Monitoring
+
+- **Socket connection monitoring**
+- **Database query optimization**
+- **Memory usage tracking**
+- **Response time monitoring**
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Write tests for new features
+4. Ensure all tests pass
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the ISC License.
+
+## 🆘 Troubleshooting
+
+### Common Issues
+
+1. **Socket connection fails**
+
+   - Check CORS configuration
+   - Verify server URL in client
+   - Ensure server is running
+
+2. **Database connection issues**
+
+   - Verify MongoDB is running
+   - Check connection string
+   - Ensure network connectivity
+
+3. **Test failures**
+   - Clear Jest cache: `pnpm jest --clearCache`
+   - Check test database setup
+   - Verify all dependencies are installed
+
+### Getting Help
+
+- Check the test logs for detailed error messages
+- Review the debugging section above
+- Ensure all environment variables are set correctly
