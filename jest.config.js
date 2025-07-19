@@ -16,7 +16,6 @@ module.exports = {
         "!server/node_modules/**",
         "!server/tests/**",
       ],
-      testTimeout: 60000,
     },
 
     // Client-side tests configuration

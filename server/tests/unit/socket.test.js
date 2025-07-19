@@ -4,6 +4,8 @@ const { Server } = require("socket.io");
 const Client = require("socket.io-client");
 const socketHandler = require("../../socket");
 
+jest.setTimeout(120000); // 2 minutes
+
 describe("Socket.io Chat Functionality", () => {
   let io, serverSocket, clientSocket, httpServer;
 

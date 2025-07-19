@@ -8,6 +8,15 @@ importers:
 
   .:
     devDependencies:
+      '@babel/preset-env':
+        specifier: ^7.28.0
+        version: 7.28.0(@babel/core@7.28.0)
+      '@babel/preset-react':
+        specifier: ^7.27.1
+        version: 7.27.1(@babel/core@7.28.0)
+      babel-jest:
+        specifier: ^29.7.0
+        version: 29.7.0(@babel/core@7.28.0)
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
